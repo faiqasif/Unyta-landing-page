@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Copy this entire file into Firebase Console → Firestore → Rules → Publish.
+    // Or: firebase deploy --only firestore:rules (after firebase login & use project)
+
+    match /creators/{docId} {
+      allow create: if request.resource.data.size() == 5
+        && request.resource.data.keys().hasOnly([
+          'fullName',
+          'email',
+          'instagramHandle',
+          'password',
+          'createdAt'
+        ])
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() > 0
+        && request.resource.data.fullName.size() < 200
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() < 320
+        && request.resource.data.instagramHandle is string
+        && request.resource.data.instagramHandle.size() > 0
+        && request.resource.data.instagramHandle.size() < 100
+        && request.resource.data.password is string
+        && request.resource.data.password.size() >= 8
+        && request.resource.data.password.size() < 500;
+      allow read, update, delete: if false;
+    }
+
+    match /brands/{docId} {
+      allow create: if request.resource.data.size() == 6
+        && request.resource.data.keys().hasOnly([
+          'fullName',
+          'email',
+          'instagramHandle',
+          'websiteUrl',
+          'password',
+          'createdAt'
+        ])
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() > 0
+        && request.resource.data.fullName.size() < 200
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() < 320
+        && request.resource.data.instagramHandle is string
+        && request.resource.data.instagramHandle.size() > 0
+        && request.resource.data.instagramHandle.size() < 100
+        && (request.resource.data.websiteUrl == null
+          || (request.resource.data.websiteUrl is string
+            && request.resource.data.websiteUrl.size() < 2000))
+        && request.resource.data.password is string
+        && request.resource.data.password.size() >= 8
+        && request.resource.data.password.size() < 500;
+      allow read, update, delete: if false;
+    }
+  }
+}
