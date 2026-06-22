@@ -28,9 +28,9 @@ export const FAQ = () => {
   return (
     <section id="faq" className="w-full py-24 bg-white flex flex-col items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col items-center">
-        
+
         {/* HEADER */}
-        <motion.div 
+        <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -46,7 +46,7 @@ export const FAQ = () => {
         </motion.div>
 
         {/* FAQ GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 w-full items-start">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -54,22 +54,23 @@ export const FAQ = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="bg-[#F9F6F6] rounded-[12px] overflow-hidden border border-black/5"
+              className="bg-[#F9F6F6] rounded-[12px] overflow-hidden border border-black/5 h-fit self-start w-full"
             >
-              <button 
+              <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left group transition-colors hover:bg-black/[0.02]"
+                className="w-full p-5 flex items-center justify-between text-left group transition-colors hover:bg-black/[0.02]"
               >
                 <span className="font-cormorant font-semibold text-[#741717] text-lg pr-4 leading-tight">
                   {faq.q}
                 </span>
                 <span className={`transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
-                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#741717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                     <polyline points="6 9 12 15 18 9"/>
-                   </svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#741717" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+
                 </span>
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
@@ -78,10 +79,10 @@ export const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 pb-6 pt-0 font-sans font-light text-[#22000C]/70 text-[15px] leading-relaxed border-t border-black/5 mx-2">
-                       <div className="pt-4">
-                         {faq.a}
-                       </div>
+                    <div className="px-5 pb-5 pt-0 font-sans font-light text-[#22000C]/70 text-[15px] leading-relaxed">
+                      <div className="">
+                        {faq.a}
+                      </div>
                     </div>
                   </motion.div>
                 )}

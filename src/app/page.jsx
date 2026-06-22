@@ -2,7 +2,7 @@
 
 import { HowItWorks } from "./_components/HowItWorks";
 import { Vision } from "./_components/Vision";
-import { PlatformFeatures } from "./_components/PlatformFeatures";
+import { HomePlatformFeatures } from "./_components/HomePlatformFeatures";
 import { WhyUnyta } from "./_components/WhyUnyta";
 import { Opportunities } from "./_components/Opportunities";
 import { GettingStarted } from "./_components/GettingStarted";
@@ -13,6 +13,9 @@ import { CreatorDialog } from "./_components/CreatorDialog";
 import { BrandDialog } from "./_components/BrandDialog";
 import { HeroSection } from "./_components/HeroSection";
 import { useState } from "react";
+import { Pricing } from "./_components/Pricing";
+import { FAQ } from "./_components/FAQ";
+import { HomeOpportunities } from "./_components/HomeOpportunities";
 
 export default function Home() {
   const [isCreatorModalOpen, setIsCreatorModalOpen] = useState(false);
@@ -26,16 +29,16 @@ export default function Home() {
       />
       <HowItWorks />
       <Vision />
-      <PlatformFeatures />
+      <HomePlatformFeatures />
       <WhyUnyta />
-      <Opportunities
+      <HomeOpportunities
         onJoinCreator={() => setIsCreatorModalOpen(true)}
         onJoinBrand={() => setIsBrandModalOpen(true)}
       />
-      {/* <Pricing /> */}
+      <Pricing />
       <GettingStarted />
       <WhyChooseUs />
-      {/* <FAQ /> */}
+      <FAQ />
       <AboutUnyta />
       <CTA
         onJoinCreator={() => setIsCreatorModalOpen(true)}

@@ -135,13 +135,6 @@ export const HowItWorks = () => {
           </motion.div>
         ))}
       </motion.div>
-
-      <Link
-        href="/#features"
-        className="mt-10 inline-flex rounded-full bg-[#541409] px-8 py-4 font-light text-[15px] tracking-wide text-white transition-all hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
-      >
-        See All Features
-      </Link>
     </section>
   );
 };

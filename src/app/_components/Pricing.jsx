@@ -7,7 +7,7 @@ export const Pricing = () => {
   const [audience, setAudience] = useState("creators");
   const [cycle, setCycle] = useState("monthly");
 
-  const plans = {
+  const   plans = {
     creators: [
       {
         title: "Free",
@@ -15,10 +15,9 @@ export const Pricing = () => {
         price: "0.00",
         suffix: "/ Month",
         features: [
-          "Unlimited matches with brands",
+          "Curated daily matches with brands",
           "Map to connect globally",
-          "Find nearby creators on the map",
-          "Connect and chat with creators",
+          "Find nearby creators & chat",
         ],
         buttonText: "Get Started",
         isAdvanced: false,
@@ -29,12 +28,12 @@ export const Pricing = () => {
         price: cycle === "monthly" ? "5.99" : "59.99",
         suffix: cycle === "monthly" ? "/ Month" : "/ yr",
         features: [
-          "Unlimited Matches with Brands",
-          "Find Nearby Creators on the Map",
-          "Connect and Chat with Creators",
-          "Priority Brand Matches",
-          "Premium Customer Support",
-          "Monthly Featured Profile Boost",
+          "More daily matches with brands",
+          "Map to connect globally",
+          "Find nearby creators & chat",
+          "Priority brand matches",
+          "Premium customer support",
+          "Monthly featured profile boost",
         ],
         buttonText: "Upgrade Now",
         isAdvanced: true,
@@ -95,45 +94,45 @@ export const Pricing = () => {
         viewport={{ once: true }}
         className="text-center mb-10 px-6"
       >
-        <h2 className="font-cormorant text-[36px] md:text-[48px] text-[#0D0D12] mb-3 leading-tight">
+        <h2 className="font-cormorant text-[36px] md:text-[40px] text-[#0D0D12] mb-3 leading-tight">
           Flexible Plans For Every Stage
         </h2>
-        <p className="font-sans font-light text-[#22000C]/70 text-base md:text-lg">
+        <p className="font-sans font-light tracking-normal text-[#22000C]/70 text-base">
           Choose the plan that fits your needs. Upgrade or downgrade anytime.
         </p>
       </motion.div>
 
       {/* TOGGLES CONTAINER */}
       <div className="flex flex-col sm:flex-row gap-6 mb-14">
-        <div className="flex bg-[#F9F6F6] p-1.5 rounded-xl border border-stone-100 w-full sm:w-auto overflow-hidden">
+        <div className="flex bg-[#EDE3E3] p-1 rounded-xl w-full sm:w-auto overflow-hidden">
           <button
             onClick={() => setAudience("creators")}
-            className={`${audience === "creators" ? "bg-[#541409] text-white shadow-sm" : "text-stone-600 hover:text-[#541409]"
-              } rounded-lg px-8 py-2.5 text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
+            className={`${audience === "creators" ? "bg-[#541409] text-white shadow-sm" : "text-black hover:text-[#541409]"
+              } rounded-lg px-6 h-[46px] text-lg tracking-wide transition-all font-cormorant font-medium w-1/2 sm:w-auto whitespace-nowrap`}
           >
             For Creators
           </button>
           <button
             onClick={() => setAudience("brands")}
-            className={`${audience === "brands" ? "bg-[#541409] text-white shadow-sm" : "text-stone-600 hover:text-[#541409]"
-              } rounded-lg px-8 py-2.5 text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
+            className={`${audience === "brands" ? "bg-[#541409] text-white shadow-sm" : "text-black hover:text-[#541409]"
+              } rounded-lg px-6 h-[46px] text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
           >
             For Brands
           </button>
         </div>
 
-        <div className="flex bg-[#F9F6F6] p-1.5 rounded-xl border border-stone-100 w-full sm:w-auto overflow-hidden">
+        <div className="flex bg-[#EDE3E3] p-1 rounded-xl w-full sm:w-auto overflow-hidden">
           <button
             onClick={() => setCycle("monthly")}
-            className={`${cycle === "monthly" ? "bg-[#541409] text-white shadow-sm" : "text-stone-600 hover:text-[#541409]"
-              } rounded-lg px-8 py-2.5 text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
+            className={`${cycle === "monthly" ? "bg-[#541409] text-white shadow-sm" : "text-black hover:text-[#541409]"
+              } rounded-lg px-6 h-[46px] text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
           >
             Monthly
           </button>
           <button
             onClick={() => setCycle("annual")}
-            className={`${cycle === "annual" ? "bg-[#541409] text-white shadow-sm" : "text-stone-600 hover:text-[#541409]"
-              } rounded-lg px-8 py-2.5 text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
+            className={`${cycle === "annual" ? "bg-[#541409] text-white shadow-sm" : "text-black hover:text-[#541409]"
+              } rounded-lg px-6 h-[46px] text-lg tracking-wide transition-all font-cormorant w-1/2 sm:w-auto whitespace-nowrap`}
           >
             Annual
           </button>
@@ -142,7 +141,7 @@ export const Pricing = () => {
 
       {/* CARDS GRID */}
       <div
-        className={`max-w-7xl mx-auto w-full px-6 grid grid-cols-1 gap-12 items-stretch justify-center justify-items-center ${audience === "brands" ? "md:grid-cols-3" : "md:grid-cols-2 max-w-[900px]"
+        className={`xl:max-w-[1350px] mx-auto px-6 grid grid-cols-1 gap-12 items-stretch justify-center justify-items-center ${audience === "brands" ? "md:grid-cols-3" : "md:grid-cols-2 max-w-[900px]"
           }`}
       >
         {currentPlans.map((plan, index) => (
@@ -152,7 +151,7 @@ export const Pricing = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`rounded-[24px] flex flex-col items-center text-center border relative transition-all ${plan.isAdvanced
+            className={`rounded-[24px] 2xl:min-w-[425px] flex flex-col items-center text-center border relative transition-all ${plan.isAdvanced
                 ? "bg-[#EBE4E1] border-[#541409] p-8 pt-12"
                 : "bg-white border-[#CECECE] p-8 pt-12"
               }`}
@@ -182,10 +181,10 @@ export const Pricing = () => {
               </div>
             )}
 
-            <ul className="flex flex-col gap-y-3.5 items-start w-full mb-10 px-2 mt-4">
+            <ul className="flex flex-col gap-y-3.5 items-start w-full mb-10 mt-4">
               {plan.features.map((f, i) => (
-                <li key={i} className="flex items-start gap-x-3 text-[16px] text-[#541409] font-medium tracking-wide font-sans text-left leading-tight">
-                  <svg className="shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#741717" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                <li key={i} className="flex items-start gap-x-3 text-[16px] text-[#541409] font-medium font-sans text-left leading-tight">
+                  <svg className="shrink-0 mt-0.5 size-5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#741717" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                   {f}
                 </li>
               ))}
