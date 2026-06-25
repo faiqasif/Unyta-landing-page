@@ -9,12 +9,12 @@ export const HowItWorks = () => {
 
   const creatorContent = [
     {
-      title: <>Build a Standout<br/>Profile and Media Kit</>,
+      title: <>Build your profile & media kit</>,
       desc: "Showcase your style, audience insights, and past collaborations to attract the right brands.",
       icon: Icons.profile
     },
     {
-      title: <>Swipe to Match<br/>with Brands</>,
+      title: <>Swipe to match with aligned brands & chat</>,
       desc: "Discover brands seeking authentic partnerships tailored to your niche and content style.",
       icon: Icons.swipe
     },
@@ -56,7 +56,7 @@ export const HowItWorks = () => {
   const currentContent = activeTab === "creators" ? creatorContent : brandContent;
 
   return (
-    <section id="how-it-works" className="flex flex-col items-center bg-white py-15 px-6 md:px-12 overflow-hidden">
+    <section id="how-it-works" className="flex flex-col items-center bg-white pt-15 pb-5 px-6 md:px-12 overflow-hidden">
       <motion.h2 
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}

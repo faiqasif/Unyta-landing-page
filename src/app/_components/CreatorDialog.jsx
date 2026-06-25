@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import toast from "react-hot-toast";
 import {
   submitCreatorApplication,
   getApplicationErrorMessage,
   passwordMeetsPolicy,
 } from "@/lib/firebase/applications";
 
-export const CreatorDialog = ({ isOpen, onClose }) => {
+export const CreatorDialog = ({ isOpen, onClose, onSubmitSuccess }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -74,8 +73,8 @@ export const CreatorDialog = ({ isOpen, onClose }) => {
         instagramHandle,
         password,
       });
-      toast.success("Thanks! Your creator application was submitted.");
       onClose();
+      onSubmitSuccess?.();
     } catch (err) {
       setSubmitError(getApplicationErrorMessage(err));
     } finally {

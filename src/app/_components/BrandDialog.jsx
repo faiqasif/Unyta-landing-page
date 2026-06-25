@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import toast from "react-hot-toast";
 import {
   submitBrandApplication,
   getApplicationErrorMessage,
   passwordMeetsPolicy,
 } from "@/lib/firebase/applications";
 
-export const BrandDialog = ({ isOpen, onClose }) => {
+export const BrandDialog = ({ isOpen, onClose, onSubmitSuccess }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -77,8 +76,8 @@ export const BrandDialog = ({ isOpen, onClose }) => {
         websiteUrl,
         password,
       });
-      toast.success("Thanks! Your brand application was submitted.");
       onClose();
+      onSubmitSuccess?.();
     } catch (err) {
       setSubmitError(getApplicationErrorMessage(err));
     } finally {

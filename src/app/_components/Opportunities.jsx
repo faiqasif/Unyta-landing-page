@@ -158,17 +158,7 @@ export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
               Turn Your Creativity Into Opportunities
             </motion.h2>
 
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.95, ease: "easeOut" } },
-              }}
-              className="text-[#22000C] font-sans font-light leading-relaxed mb-5 max-w-[418px]"
-            >
-              Build your portfolio, track your campaigns, and collaborate with brands that value your content.
-            </motion.p>
-
-            <div className="flex flex-col gap-y-4 mb-8">
+            <div className="flex flex-col gap-y-4 mb-8 mt-3">
               {creatorFeatures.map((item, index) => (
                 <FeaturePill key={index} item={item} index={index} direction="left" />
               ))}
@@ -241,17 +231,7 @@ export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
               Discover Creators Who Deliver Results
             </motion.h2>
 
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.95, ease: "easeOut" } },
-              }}
-              className="text-[#22000C] font-sans font-light leading-relaxed -tracking-normal mb-5 max-w-[418px]"
-            >
-              Launch campaigns with trusted creators. Access insights, streamline communication, and earn authentic reviews.
-            </motion.p>
-
-            <div className="flex flex-col gap-y-4 mb-8">
+            <div className="flex flex-col gap-y-4 mb-8 mt-3">
               {brandFeatures.map((item, index) => (
                 <FeaturePill key={index} item={item} index={index} direction="right" />
               ))}

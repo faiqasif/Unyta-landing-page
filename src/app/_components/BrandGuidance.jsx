@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
+import { BrandDemoDialog } from "./BrandDemoDialog";
 
 const CONTACT_EMAIL = "contact@joinunyta.com";
 
@@ -29,7 +31,9 @@ const CalendarIcon = () => (
 
 );
 
-export const BrandGuidance = () => {
+export const BrandGuidance = ({ onDemoSubmitSuccess }) => {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+
   return (
     <section className="bg-[#F9F6F6] flex flex-col w-full">
       <motion.div
@@ -74,13 +78,14 @@ export const BrandGuidance = () => {
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-4 w-full max-w-[340px]">
               <CalendarIcon />
-              <a
-                href={`mailto:${CONTACT_EMAIL}?subject=Book%20a%20Demo`}
+              <button
+                type="button"
+                onClick={() => setIsDemoOpen(true)}
                 className="flex-1 flex items-center justify-between gap-3 p-3 rounded-lg bg-[#741717] text-white font-sans text-base tracking-wide hover:bg-[#5a1212] transition-colors"
               >
                 <span>Book a Demo</span>
                 <ChevronRight className="text-white" />
-              </a>
+              </button>
             </div>
             <p className="font-sans font-light text-sm text-[#22000C]/60 max-w-[340px] pl-6">
               For multi-locations businesses or larger brands.
@@ -88,6 +93,15 @@ export const BrandGuidance = () => {
           </div>
         </div>
       </motion.div>
+
+      <BrandDemoDialog
+        isOpen={isDemoOpen}
+        onClose={() => setIsDemoOpen(false)}
+        onSubmitSuccess={() => {
+          setIsDemoOpen(false);
+          onDemoSubmitSuccess?.();
+        }}
+      />
     </section>
   );
 };

@@ -14,22 +14,22 @@ export const WhereWeOperate = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center text-center mb-10 md:mb-12"
+          className="flex flex-col items-center text-center mb-6"
         >
           <Image
-            src="/logo-vision.svg"
+            src="/logo-brown.png"
             alt="Unyta logo"
             width={60}
             height={66}
-            className="object-contain h-auto mb-6"
+            className="object-contain h-auto mb-4"
             quality={100}
           />
 
-          <h2 className="font-cormorant text-[30px] md:text-[40px] uppercase font-semibold text-[#741717] mb-5 leading-tight">
+          <h2 className="font-cormorant text-[30px] md:text-[40px] uppercase font-semibold text-[#741717] mb-4 leading-tight">
             Where We Operate
           </h2>
 
-          <p className="font-sans font-light text-[#22000C] text-base md:text-lg max-w-[704px] leading-relaxed mb-8">
+          <p className="font-sans text-[#22000C] text-base md:text-lg max-w-[704px] leading-relaxed mb-8">
             From global product gifting to curated city experiences, Unyta connects
             creators with premium brand partnerships across four key cities.
           </p>
@@ -60,7 +60,7 @@ export const WhereWeOperate = () => {
                   transition: { duration: 0.5, ease: "easeOut" },
                 },
               }}
-              className="bg-white rounded-[16px] border border-[#EADCDC] p-5 flex items-center justify-center"
+              className="bg-white rounded-[16px] border border-[#EADCDC] px-5 py-4.75 flex items-center justify-center"
             >
               <span className="font-cormorant text-2xl font-semibold text-[#741717]">
                 {city}

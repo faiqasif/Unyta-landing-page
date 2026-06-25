@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export const PlatformFeatures = () => {
   return (
-    <section id="features" className="w-full py-24 bg-white flex flex-col items-center overflow-hidden scroll-mt-24 antialiased">
+    <section id="features" className="w-full pt-12 pb-24 bg-white flex flex-col items-center overflow-hidden scroll-mt-24 antialiased">
       {/* HEADER */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}

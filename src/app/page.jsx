@@ -11,6 +11,7 @@ import { AboutUnyta } from "./_components/AboutUnyta";
 import { CTA } from "./_components/CTA";
 import { CreatorDialog } from "./_components/CreatorDialog";
 import { BrandDialog } from "./_components/BrandDialog";
+import { ApplicationThankYouDialog } from "./_components/ApplicationThankYouDialog";
 import { HeroSection } from "./_components/HeroSection";
 import { useState } from "react";
 import { Pricing } from "./_components/Pricing";
@@ -24,6 +25,7 @@ import { BrandGuidance } from "./_components/BrandGuidance";
 export default function Home() {
   const [isCreatorModalOpen, setIsCreatorModalOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
+  const [thankYouVariant, setThankYouVariant] = useState(null);
 
   return (
     <main className="min-h-screen w-full bg-white font-sans text-stone-900">
@@ -42,7 +44,7 @@ export default function Home() {
         onJoinCreator={() => setIsCreatorModalOpen(true)}
         onJoinBrand={() => setIsBrandModalOpen(true)}
       />
-      <BrandGuidance />
+      <BrandGuidance onDemoSubmitSuccess={() => setThankYouVariant("demo")} />
       {/* <HomeOpportunities
         onJoinCreator={() => setIsCreatorModalOpen(true)}
         onJoinBrand={() => setIsBrandModalOpen(true)}
@@ -59,11 +61,19 @@ export default function Home() {
       <CreatorDialog
         isOpen={isCreatorModalOpen}
         onClose={() => setIsCreatorModalOpen(false)}
+        onSubmitSuccess={() => setThankYouVariant("application")}
       />
 
       <BrandDialog
         isOpen={isBrandModalOpen}
         onClose={() => setIsBrandModalOpen(false)}
+        onSubmitSuccess={() => setThankYouVariant("application")}
+      />
+
+      <ApplicationThankYouDialog
+        isOpen={thankYouVariant !== null}
+        variant={thankYouVariant ?? "application"}
+        onClose={() => setThankYouVariant(null)}
       />
 
     </main>

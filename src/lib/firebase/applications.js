@@ -62,3 +62,26 @@ export async function submitBrandApplication({
     createdAt: Timestamp.now(),
   });
 }
+
+export async function submitBrandDemoRequest({
+  fullName,
+  workEmail,
+  brandName,
+  industry,
+  numberOfLocations,
+  estimatedCampaignsPerMonth,
+  notes,
+}) {
+  const db = getFirebaseDb();
+  const trimmedNotes = notes?.trim();
+  await addDoc(collection(db, "brandDemoRequests"), {
+    fullName: fullName.trim(),
+    workEmail: workEmail.trim().toLowerCase(),
+    brandName: brandName.trim(),
+    industry,
+    numberOfLocations,
+    estimatedCampaignsPerMonth,
+    notes: trimmedNotes || null,
+    createdAt: Timestamp.now(),
+  });
+}

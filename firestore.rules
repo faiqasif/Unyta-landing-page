@@ -55,5 +55,40 @@ service cloud.firestore {
         && request.resource.data.password.size() < 500;
       allow read, update, delete: if false;
     }
+
+    match /brandDemoRequests/{docId} {
+      allow create: if request.resource.data.keys().hasOnly([
+          'fullName',
+          'workEmail',
+          'brandName',
+          'industry',
+          'numberOfLocations',
+          'estimatedCampaignsPerMonth',
+          'notes',
+          'createdAt'
+        ])
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() > 0
+        && request.resource.data.fullName.size() < 200
+        && request.resource.data.workEmail is string
+        && request.resource.data.workEmail.size() > 3
+        && request.resource.data.workEmail.size() < 320
+        && request.resource.data.brandName is string
+        && request.resource.data.brandName.size() > 0
+        && request.resource.data.brandName.size() < 200
+        && request.resource.data.industry is string
+        && request.resource.data.industry.size() > 0
+        && request.resource.data.industry.size() < 100
+        && request.resource.data.numberOfLocations is string
+        && request.resource.data.numberOfLocations.size() > 0
+        && request.resource.data.numberOfLocations.size() < 100
+        && request.resource.data.estimatedCampaignsPerMonth is string
+        && request.resource.data.estimatedCampaignsPerMonth.size() > 0
+        && request.resource.data.estimatedCampaignsPerMonth.size() < 100
+        && (request.resource.data.notes == null
+          || (request.resource.data.notes is string
+            && request.resource.data.notes.size() < 2000));
+      allow read, update, delete: if false;
+    }
   }
 }
