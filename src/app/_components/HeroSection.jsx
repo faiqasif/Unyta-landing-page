@@ -7,7 +7,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
   return (
     <>
       {/* MOBILE HERO VIEW (Shown only on mobile screens < md) */}
-      <div className="relative flex w-full flex-col md:hidden bg-[#F5EBE6] pt-24 pb-14 overflow-hidden min-h-[600px] min-[375px]:min-h-[640px] min-[410px]:min-h-[680px]">
+      <div className="relative flex w-full flex-col md:hidden bg-[#F5EBE6] pt-24 pb-5 overflow-hidden">
         {/* Mobile Left Text Block */}
         <motion.div
           initial="hidden"
@@ -26,7 +26,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
                 transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
               },
             }}
-            className="font-cormorant text-[26px] min-[375px]:text-[29px] min-[410px]:text-[32px] font-semibold leading-[1.12] text-[#22000C] tracking-tight"
+            className="font-cormorant text-[26px] min-[375px]:text-[28px] font-semibold leading-[1.12] text-[#22000C] tracking-tight"
           >
             The members<span className="font-sans font-normal">-</span>only community where{" "}
             <span className="text-[#741717] font-medium">creators and brands</span> connect authentically.
@@ -82,16 +82,16 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "circOut", delay: 0.25 }}
-          className="absolute right-[-80px] min-[375px]:right-[-90px] min-[410px]:right-[-100px] top-[14%] min-[375px]:top-[12%] w-[250px] min-[375px]:w-[280px] min-[410px]:w-[310px] z-20 pointer-events-none select-none"
+          className="absolute right-[-80px] h-full flex items-center min-[375px]:right-[-90px] min-[410px]:right-[-100px] top-[4%] w-[250px] min-[375px]:w-[280px] min-[410px]:w-[310px] z-20 pointer-events-none select-none"
         >
           <Image
             src="/mobile-hero.png"
             alt="Unyta app mockup"
-            width={540}
-            height={620}
+            width={211}
+            height={259}
             quality={100}
             priority
-            className="w-full h-auto object-contain drop-shadow-2xl"
+            className="w-[211px] h-auto object-contain drop-shadow-2xl"
           />
         </motion.div>
       </div>

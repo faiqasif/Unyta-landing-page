@@ -16,14 +16,14 @@ const sectors = [
 
 export const CoreSectors = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-white flex flex-col items-center overflow-hidden">
+    <section className="w-full py-7 sm:py-16 md:py-24 bg-white flex flex-col items-center overflow-hidden">
       <div className="mx-auto px-6 md:px-12 w-full flex flex-col items-center">
         <motion.h2
           initial={{ y: 24, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-cormorant text-[36px] md:text-[48px] uppercase font-semibold text-[#741717] mb-12 md:mb-16 text-center leading-tight"
+          className="font-cormorant text-2xl sm:text-[36px] md:text-[48px] uppercase font-semibold text-[#741717] mb-12 md:mb-16 text-center leading-tight"
         >
           Core Sectors
         </motion.h2>

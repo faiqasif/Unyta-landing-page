@@ -33,7 +33,7 @@ export const Footer = () => {
 
   return (
     <>
-    <footer className="flex flex-col w-full bg-[#541409] text-warm-white lg:h-[366px] pt-14 pb-6 gap-12 items-center px-6">
+    <footer className="flex flex-col w-full bg-[#541409] text-warm-white lg:h-[366px] pt-7 sm:pt-14 pb-6 gap-12 items-center px-6">
       <div className="flex flex-col w-full max-w-[1200px] md:flex-row justify-between items-start gap-12 md:gap-0 h-full">
         <div className="w-full md:w-1/2 flex flex-col items-start gap-3 pr-4">
           <div className="flex items-center gap-2">
@@ -80,13 +80,14 @@ export const Footer = () => {
         </div>
 
         {/* RIGHT SIDE: LINK COLUMNS (50% Split into 3) */}
-        <div className="w-full md:w-1/2 grid grid-cols-3 gap-6 md:gap-12">
+        <div className="w-full md:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-12">
           {/* PRODUCT */}
           <div className="flex flex-col items-start">
             <h4 className="font-sans font-medium text-[13px] sm:text-base md:text-lg mb-4 sm:mb-6 text-warm-white">Product</h4>
             <div className="flex flex-col gap-y-3 sm:gap-y-4 font-sans font-light text-xs sm:text-base">
               <Link href="/#features" className="hover:underline transition-colors">Features</Link>
               <Link href="/#how-it-works" className="hover:underline transition-colors">How It Works</Link>
+              <Link href="/#about" className="hover:underline transition-colors">About</Link>
             </div>
           </div>
 
@@ -101,7 +102,7 @@ export const Footer = () => {
           </div>
 
           {/* SUPPORT */}
-          <div className="flex flex-col justify-self-end">
+          <div className="flex flex-col md:justify-self-end">
             <h4 className="font-sans font-medium text-[13px] sm:text-base md:text-lg mb-4 sm:mb-6 text-white">Support</h4>
             <div className="flex flex-col gap-y-3 sm:gap-y-4 font-sans font-light text-xs sm:text-base">
               <button

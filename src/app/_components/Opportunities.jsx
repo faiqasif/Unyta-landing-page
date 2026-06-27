@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 
@@ -122,159 +123,242 @@ const FeaturePill = ({ item, index, direction }) => (
   </motion.div>
 );
 
+const BulletCheckIcon = () => (
+  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#741717]">
+    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.5 4L4 6.5L8.5 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </div>
+);
+
+const creatorMobileFeatures = [
+  "Build your profile and media kit",
+  "Connect with aligned brands",
+  "Track collaborations and content",
+  "Earn rewards and exclusive perks"
+];
+
+const brandMobileFeatures = [
+  "Access vetted, high-quality creators",
+  "Track campaign progress in real-time",
+  "Centralized messaging and collaboration",
+  "Drive authentic engagement and reach"
+];
+
 export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
+  const [activeMobileTab, setActiveMobileTab] = useState("creators");
+
   return (
-    <section className="w-full py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-0 items-start">
-
-          {/* LEFT: FOR CREATORS */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              visible: { transition: { staggerChildren: 0.16 } },
-            }}
-            className="flex flex-col items-start"
+    <>
+      {/* MOBILE VIEW (Screen width < md) */}
+      <div className="md:hidden flex flex-col w-full px-6 py-12 bg-white overflow-hidden">
+        <h2 className="text-center font-cormorant text-[28px] font-semibold text-[#741717] uppercase tracking-wide mb-6">
+          Choose Your Path
+        </h2>
+        
+        {/* Toggle Switcher */}
+        <div className="flex bg-[#F9F5F2] rounded-xl p-1 mb-8 border border-stone-100 mx-auto w-full max-w-[320px] shadow-sm">
+          <button
+            onClick={() => setActiveMobileTab("creators")}
+            className={`flex-1 rounded-lg py-2.5 text-sm font-medium transition-all font-sans ${
+              activeMobileTab === "creators"
+                ? "bg-[#541409] text-white shadow-sm"
+                : "text-stone-600 hover:text-[#541409]"
+            }`}
           >
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: "easeOut" } },
-              }}
-              className="px-4 py-1.5 rounded-full bg-[#EADCDC] text-[#741717] text-xs font-sans font-medium mb-5"
-            >
-              For Creators
-            </motion.div>
-
-            <motion.h2
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: "easeOut" } },
-              }}
-              className="font-cormorant text-[36px] md:text-[40px] font-medium text-[#0D0D12] leading-[1.2] mb-5 max-w-md"
-            >
-              Turn Your Creativity Into Opportunities
-            </motion.h2>
-
-            <div className="flex flex-col gap-y-4 mb-8 mt-3">
-              {creatorFeatures.map((item, index) => (
-                <FeaturePill key={index} item={item} index={index} direction="left" />
-              ))}
-            </div>
-
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.95, ease: "easeOut" } },
-              }}
-              className="flex flex-col items-start gap-y-4"
-            >
-              <p className="text-[#741717] text-lg">Apply for Early Access</p>
-              <button
-                type="button"
-                onClick={onJoinCreator}
-                className="h-14 px-10 rounded-full bg-[#741717] text-white font-sans text-base tracking-wide shadow-lg hover:bg-[#5a1212] transition-all hover:scale-105 active:scale-95"
-              >
-                Join as a Creator
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* CENTER: OVERLAP IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.35, ease: "circOut" }}
-            className="hidden lg:flex items-center justify-center pt-13 px-4"
+            For Creators
+          </button>
+          <button
+            onClick={() => setActiveMobileTab("brands")}
+            className={`flex-1 rounded-lg py-2.5 text-sm font-medium transition-all font-sans ${
+              activeMobileTab === "brands"
+                ? "bg-[#541409] text-white shadow-sm"
+                : "text-stone-600 hover:text-[#541409]"
+            }`}
           >
-            <Image
-              src="/overlap-image.png"
-              alt="Polaroid collage"
-              width={299}
-              height={450}
-              quality={100}
-              className="object-contain"
-              priority
-            />
-          </motion.div>
-
-          {/* RIGHT: FOR BRANDS */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              visible: { transition: { staggerChildren: 0.16 } },
-            }}
-            className="flex flex-col items-start"
-          >
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, x: 20 },
-                visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: "easeOut" } },
-              }}
-              className="px-4 py-1.5 rounded-full bg-[#EADCDC] text-[#741717] text-xs font-sans font-medium mb-5"
-            >
-              For Brands
-            </motion.div>
-
-            <motion.h2
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: "easeOut" } },
-              }}
-              className="font-cormorant text-[36px] md:text-[40px] font-medium text-[#0D0D12] leading-[1.2] mb-5 max-w-md"
-            >
-              Discover Creators Who Deliver Results
-            </motion.h2>
-
-            <div className="flex flex-col gap-y-4 mb-8 mt-3">
-              {brandFeatures.map((item, index) => (
-                <FeaturePill key={index} item={item} index={index} direction="right" />
-              ))}
-            </div>
-
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.95, ease: "easeOut" } },
-              }}
-              className="flex flex-col items-start gap-y-4"
-            >
-              <p className="text-[#741717] text-lg">Apply for Early Access</p>
-              <button
-                type="button"
-                onClick={onJoinBrand}
-                className="h-14 px-10 rounded-full bg-[#741717] text-white font-sans text-base tracking-wide shadow-lg hover:bg-[#5a1212] transition-all hover:scale-105 active:scale-95"
-              >
-                Join as a Brand
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* MOBILE: OVERLAP IMAGE (shown between sections on mobile) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.35, ease: "circOut" }}
-            className="flex lg:hidden items-center justify-center -order-1"
-          >
-            <Image
-              src="/overlap-image.png"
-              alt="Polaroid collage"
-              width={300}
-              height={420}
-              quality={100}
-              className="object-contain"
-              priority
-            />
-          </motion.div>
+            For Brands
+          </button>
         </div>
+
+        {/* Tab Content Box */}
+        <div className="relative flex w-full items-start gap-4 mb-8 min-h-[260px] min-[375px]:min-h-[240px]">
+          {/* Left Text Block */}
+          <div className="w-[58%] flex flex-col items-start text-left z-10">
+            <h3 className="font-cormorant text-2xl font-semibold text-[#22000C] mb-5">
+              {activeMobileTab === "creators" ? "For Creators" : "For Brands"}
+            </h3>
+            
+            <ul className="flex flex-col gap-y-4">
+              {(activeMobileTab === "creators" ? creatorMobileFeatures : brandMobileFeatures).map((item, index) => (
+                <li key={index} className="flex items-start gap-2.5">
+                  <BulletCheckIcon />
+                  <span className="font-sans text-[13px] min-[375px]:text-sm font-light text-[#22000C] leading-snug">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right floating collage image */}
+          <div className="absolute right-[-15px] top-[10px] w-[45%] max-w-[170px] pointer-events-none select-none z-0">
+            <Image
+              src="/overlap-image.png"
+              alt="Polaroid collage"
+              width={200}
+              height={280}
+              quality={100}
+              priority
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Button CTA */}
+        <button
+          type="button"
+          onClick={activeMobileTab === "creators" ? onJoinCreator : onJoinBrand}
+          className="w-full h-12 rounded-full bg-[#741717] text-sm tracking-wide text-white font-sans font-medium transition-all active:scale-[0.98] shadow-lg shadow-[#741717]/10"
+        >
+          {activeMobileTab === "creators" ? "Join as a Creator" : "Join as a Brand"}
+        </button>
       </div>
-    </section>
+
+      {/* DESKTOP VIEW (Screen width >= md) */}
+      <section className="hidden md:block w-full py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-0 items-start">
+
+            {/* LEFT: FOR CREATORS */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.16 } },
+              }}
+              className="flex flex-col items-start"
+            >
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: "easeOut" } },
+                }}
+                className="px-4 py-1.5 rounded-full bg-[#EADCDC] text-[#741717] text-xs font-sans font-medium mb-5"
+              >
+                For Creators
+              </motion.div>
+
+              <motion.h2
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: "easeOut" } },
+                }}
+                className="font-cormorant text-[36px] md:text-[40px] font-medium text-[#0D0D12] leading-[1.2] mb-5 max-w-md"
+              >
+                Turn Your Creativity Into Opportunities
+              </motion.h2>
+
+              <div className="flex flex-col gap-y-4 mb-8 mt-3">
+                {creatorFeatures.map((item, index) => (
+                  <FeaturePill key={index} item={item} index={index} direction="left" />
+                ))}
+              </div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scale: 0.95 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.95, ease: "easeOut" } },
+                }}
+                className="flex flex-col items-start gap-y-4"
+              >
+                <p className="text-[#741717] text-lg">Apply for Early Access</p>
+                <button
+                  type="button"
+                  onClick={onJoinCreator}
+                  className="h-14 px-10 rounded-full bg-[#741717] text-white font-sans text-base tracking-wide shadow-lg hover:bg-[#5a1212] transition-all hover:scale-105 active:scale-95"
+                >
+                  Join as a Creator
+                </button>
+              </motion.div>
+            </motion.div>
+
+            {/* CENTER: OVERLAP IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.35, ease: "circOut" }}
+              className="hidden lg:flex items-center justify-center pt-13 px-4"
+            >
+              <Image
+                src="/overlap-image.png"
+                alt="Polaroid collage"
+                width={299}
+                height={450}
+                quality={100}
+                className="object-contain"
+                priority
+              />
+            </motion.div>
+
+            {/* RIGHT: FOR BRANDS */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.16 } },
+              }}
+              className="flex flex-col items-start"
+            >
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: 20 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: "easeOut" } },
+                }}
+                className="px-4 py-1.5 rounded-full bg-[#EADCDC] text-[#741717] text-xs font-sans font-medium mb-5"
+              >
+                For Brands
+              </motion.div>
+
+              <motion.h2
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: "easeOut" } },
+                }}
+                className="font-cormorant text-[36px] md:text-[40px] font-medium text-[#0D0D12] leading-[1.2] mb-5 max-w-md"
+              >
+                Discover Creators Who Deliver Results
+              </motion.h2>
+
+              <div className="flex flex-col gap-y-4 mb-8 mt-3">
+                {brandFeatures.map((item, index) => (
+                  <FeaturePill key={index} item={item} index={index} direction="right" />
+                ))}
+              </div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scale: 0.95 },
+                  visible: { opacity: 1, scale: 1, transition: { duration: 0.95, ease: "easeOut" } },
+                }}
+                className="flex flex-col items-start gap-y-4"
+              >
+                <p className="text-[#741717] text-lg">Apply for Early Access</p>
+                <button
+                  type="button"
+                  onClick={onJoinBrand}
+                  className="h-14 px-10 rounded-full bg-[#741717] text-white font-sans text-base tracking-wide shadow-lg hover:bg-[#5a1212] transition-all hover:scale-105 active:scale-95"
+                >
+                  Join as a Brand
+                </button>
+              </motion.div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+    </>
   );
 };

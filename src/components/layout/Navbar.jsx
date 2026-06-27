@@ -27,7 +27,7 @@ export const Navbar = () => {
   });
 
   return (
-    <div className="fixed top-4 md:top-5 left-1/2 z-50 -translate-x-1/2 px-4 w-full max-w-[95vw] md:max-w-fit pointer-events-none">
+    <div className="fixed top-0 md:top-5 left-1/2 z-50 -translate-x-1/2 px-5 w-full md:max-w-fit pointer-events-none">
       <motion.nav
         variants={{
           visible: { y: 0, opacity: 1 },
@@ -38,12 +38,13 @@ export const Navbar = () => {
         transition={{ duration: 0.35, ease: "circOut" }}
         className="flex flex-col items-center pointer-events-auto"
       >
-        <div className="flex w-full md:w-fit h-13.5 items-center justify-between md:justify-center gap-x-8 rounded-full bg-[#541409] px-6 md:px-7 text-sm font-medium text-stone-200 shadow-xl">
+        <div className="flex w-screen md:w-fit items-center py-3.5 md:py-0 md:h-13.5 justify-between md:justify-center gap-x-8 md:rounded-full bg-[#f5ebe6] md:bg-[#541409] px-4 md:px-7 text-sm font-medium text-stone-200 md:shadow-xl">
           <Link
             href="/"
             className="flex items-center justify-center shrink-0"
           >
-            <Image src="/image.png" alt="Unyta Logo" width={21} height={21} className="object-contain" style={{ height: "auto" }} quality={100} />
+            <Image src="/image.png" alt="Unyta Logo" width={22} height={24} className="object-contain hidden md:block" style={{ height: "auto" }} quality={100} />
+            <Image src="/logo-brown.png" alt="Unyta Logo" width={44} height={48} className="object-contain md:hidden" style={{ height: "auto" }} quality={100} />
           </Link>
 
           {/* Desktop Links */}
@@ -74,9 +75,9 @@ export const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-5 h-[2px] bg-white rounded-full transition-transform duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-[8px]" : ""}`}></span>
-            <span className={`block w-5 h-[2px] bg-white rounded-full transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-0" : ""}`}></span>
-            <span className={`block w-5 h-[2px] bg-white rounded-full transition-transform duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
+            <span className={`block w-5 h-[2px] bg-[#541409] md:bg-white rounded-full transition-transform duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-[8px]" : ""}`}></span>
+            <span className={`block w-5 h-[2px] bg-[#541409] md:bg-white rounded-full transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-0" : ""}`}></span>
+            <span className={`block w-5 h-[2px] bg-[#541409] md:bg-white rounded-full transition-transform duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
           </button>
         </div>
 

@@ -56,13 +56,13 @@ export const HowItWorks = () => {
   const currentContent = activeTab === "creators" ? creatorContent : brandContent;
 
   return (
-    <section id="how-it-works" className="flex flex-col items-center bg-white pt-15 pb-5 px-6 md:px-12 overflow-hidden">
+    <section id="how-it-works" className="flex flex-col items-center bg-white pt-7 sm:pt-15 pb-5 px-6 md:px-12 overflow-hidden">
       <motion.h2 
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="font-cormorant text-[36px] md:text-[40px] uppercase text-[#0D0D12] mb-2 font-semibold text-center"
+        className="font-cormorant text-2xl sm:text-[36px] md:text-[40px] uppercase text-[#0D0D12] mb-2 font-semibold text-center"
       >
         How It Works
       </motion.h2>

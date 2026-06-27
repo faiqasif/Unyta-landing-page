@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export const PlatformFeatures = () => {
   return (
-    <section id="features" className="w-full pt-12 pb-24 bg-white flex flex-col items-center overflow-hidden scroll-mt-24 antialiased">
+    <section id="features" className="w-full pt-7 sm:pt-12 pb-7 sm: pb-24 bg-white flex flex-col items-center overflow-hidden scroll-mt-24 antialiased">
       {/* HEADER */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}
@@ -14,7 +14,7 @@ export const PlatformFeatures = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center px-6"
       >
-        <h2 className="font-cormorant text-[36px] md:text-[48px] uppercase font-semibold text-[#0D0D12] mb-5">
+        <h2 className="font-cormorant text-2xl sm:text-[36px] md:text-[48px] uppercase font-semibold text-[#0D0D12] mb-5">
           Platform Features
         </h2>
         <p className="font-sans font-light text-[#22000C] text-base md:text-xl max-w-2xl mx-auto">
