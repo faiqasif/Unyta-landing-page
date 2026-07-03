@@ -15,7 +15,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
           variants={{
             visible: { transition: { staggerChildren: 0.12 } },
           }}
-          className="relative z-10 px-6 max-w-[62%] flex flex-col items-start text-left"
+          className="relative z-10 px-6 max-w-[67%] flex flex-col items-start text-left"
         >
           <motion.h1
             variants={{
@@ -29,7 +29,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
             className="font-cormorant text-[26px] min-[375px]:text-[28px] font-semibold leading-[1.12] text-[#22000C] tracking-tight"
           >
             The members<span className="font-sans font-normal">-</span>only community where{" "}
-            <span className="text-[#741717] font-medium">creators and brands</span> connect authentically.
+            <span className="text-[#741717] font-medium">creators</span> and <span className="text-[#741717] font-medium">brands</span> connect authentically.
           </motion.h1>
 
           <motion.p
@@ -41,7 +41,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
                 transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
               },
             }}
-            className="mt-3 font-sans text-xs min-[375px]:text-sm font-light leading-relaxed text-[#22000C]/80"
+            className="mt-3 font-sans text-sm tracking-wider font-light leading-relaxed text-[#22000C]/80"
           >
             Swipe to match. Unlock exclusive collaborations, gifted products, and curated experiences.
           </motion.p>
@@ -57,7 +57,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
             }}
             className="mt-6 flex flex-col items-start w-full gap-3 max-w-[190px] min-[375px]:max-w-[210px]"
           >
-            <p className="font-sans text-[13px] min-[375px]:text-sm font-medium text-[#741717] pl-0.5">
+            <p className="font-sans mb-1 text-sm text-center w-full font-medium text-[#741717]">
               Apply for Early Access
             </p>
             <button
@@ -82,7 +82,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "circOut", delay: 0.25 }}
-          className="absolute right-[-80px] h-full flex items-center min-[375px]:right-[-90px] min-[410px]:right-[-100px] top-[4%] w-[250px] min-[375px]:w-[280px] min-[410px]:w-[310px] z-20 pointer-events-none select-none"
+          className="absolute right-[-55px] h-full flex items-center top-[4%] w-[211px] z-20 pointer-events-none select-none"
         >
           <Image
             src="/mobile-hero.png"
