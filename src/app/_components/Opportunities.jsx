@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 const creatorFeatures = [
   {
@@ -124,7 +125,7 @@ const FeaturePill = ({ item, index, direction }) => (
 );
 
 const BulletCheckIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="size-5 min-w-5 min-h-5" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M18.3337 9.99984C18.3337 5.39746 14.6027 1.6665 10.0003 1.6665C5.39795 1.6665 1.66699 5.39746 1.66699 9.99984C1.66699 14.6022 5.39795 18.3332 10.0003 18.3332C14.6027 18.3332 18.3337 14.6022 18.3337 9.99984Z" fill="#741717" />
     <path d="M6.66699 10.6248C6.66699 10.6248 8.00033 11.3853 8.66699 12.4998C8.66699 12.4998 10.667 8.12484 13.3337 6.6665" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
@@ -138,10 +139,10 @@ const creatorMobileFeatures = [
 ];
 
 const brandMobileFeatures = [
-  "Access vetted, high-quality creators",
-  "Track campaign progress in real-time",
-  "Centralized messaging and collaboration",
-  "Drive authentic engagement and reach"
+  "Discover high-quality creators",
+  "Launch and manage campaigns",
+  "Centralised messaging and collaboration",
+  "Track performance in real-time"
 ];
 
 export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
@@ -198,7 +199,10 @@ export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
           </div>
 
           {/* Right floating collage image */}
-          <div className="absolute right-[-15px] top-[10px] w-[45%] max-w-[170px] pointer-events-none select-none z-0">
+          <div className={cn(
+            "absolute right-[-15px] top-[10px] w-[45%] max-w-[170px] pointer-events-none select-none z-0",
+            activeMobileTab === "brands" && "-scale-x-100"
+          )}>
             <Image
               src="/overlap-image.png"
               alt="Polaroid collage"

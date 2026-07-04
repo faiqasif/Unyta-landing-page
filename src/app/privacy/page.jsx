@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-white flex flex-col w-full">
-      <section className="w-full h-[283px] bg-[#EEE8E6] flex flex-col items-center justify-center pt-20 px-6">
+      <section className="w-full h-[283px] bg-[#EEE8E6] flex flex-col items-center justify-center pt-10 md:pt-16 px-6">
         <motion.div
            initial={{ y: 20, opacity: 0 }}
            animate={{ y: 0, opacity: 1 }}
