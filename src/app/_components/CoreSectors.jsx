@@ -23,7 +23,7 @@ export const CoreSectors = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-cormorant text-2xl sm:text-[36px] md:text-[48px] uppercase font-semibold text-[#741717] mb-12 md:mb-16 text-center leading-tight"
+          className="font-cormorant text-2xl sm:text-[36px] md:text-[48px] uppercase font-semibold text-[#741717] mb-5 md:mb-16 text-center leading-tight"
         >
           Core Sectors
         </motion.h2>
@@ -74,41 +74,47 @@ export const CoreSectors = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-0 w-full max-w-[700px] pt-10 md:pt-12"
+          className="flex items-center justify-center gap-4 sm:gap-0 w-full max-w-[700px] pt-5 md:pt-12"
         >
           <div className="flex items-center gap-4 sm:gap-5 sm:flex-1 sm:justify-center">
-            <Image
-              src="/core/globe.svg"
-              alt=""
-              width={32}
-              height={32}
-              aria-hidden
-            />
+            <div className="size-12 rounded-full flex items-center justify-center bg-[#F1E8E8] min-w-12">
+              <Image
+                src="/core/globe.svg"
+                alt=""
+                width={32}
+                height={32}
+                aria-hidden
+                className="size-6 md:size-8"
+              />
+            </div>
             <div className="flex flex-col gap-0.5">
               <span className="font-sans font-light text-sm text-[#22000C]/60">
                 Product Gifting
               </span>
-              <span className="font-cormorant text-xl md:text-2xl font-semibold text-[#741717]">
+              <span className="font-cormorant text-nowrap md:text-2xl font-semibold text-[#741717]">
                 Available globally
               </span>
             </div>
           </div>
 
-          <div className="hidden sm:block w-px h-14 bg-linear-to-b from-[#FFE2DD] via-[#54140966] to-[#FFE2DD] mx-8 md:mx-12 shrink-0" />
+          <div className="block w-px h-14 bg-linear-to-b from-[#FFE2DD] via-[#54140966] to-[#FFE2DD] mx-0 md:mx-12 shrink-0" />
 
           <div className="flex items-center gap-4 sm:gap-5 sm:flex-1 sm:justify-center">
-            <Image
-              src="/core/location.svg"
-              alt=""
-              width={32}
-              height={32}
-              aria-hidden
-            />
+            <div className="size-12 rounded-full flex items-center justify-center bg-[#F1E8E8] min-w-12">
+              <Image
+                src="/core/location.svg"
+                alt=""
+                width={32}
+                height={32}
+                aria-hidden
+                className="size-6 md:size-8"
+              />
+            </div>
             <div className="flex flex-col gap-0.5">
               <span className="font-sans font-light text-sm text-[#22000C]/60">
                 Experiences
               </span>
-              <span className="font-cormorant text-xl md:text-2xl font-semibold text-[#741717]">
+              <span className="font-cormorant text-nowrap md:text-2xl font-semibold text-[#741717]">
                 Curated by city
               </span>
             </div>

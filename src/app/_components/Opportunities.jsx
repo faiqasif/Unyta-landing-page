@@ -124,11 +124,10 @@ const FeaturePill = ({ item, index, direction }) => (
 );
 
 const BulletCheckIcon = () => (
-  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#741717]">
-    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.5 4L4 6.5L8.5 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  </div>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.3337 9.99984C18.3337 5.39746 14.6027 1.6665 10.0003 1.6665C5.39795 1.6665 1.66699 5.39746 1.66699 9.99984C1.66699 14.6022 5.39795 18.3332 10.0003 18.3332C14.6027 18.3332 18.3337 14.6022 18.3337 9.99984Z" fill="#741717" />
+    <path d="M6.66699 10.6248C6.66699 10.6248 8.00033 11.3853 8.66699 12.4998C8.66699 12.4998 10.667 8.12484 13.3337 6.6665" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
 );
 
 const creatorMobileFeatures = [
@@ -151,30 +150,28 @@ export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
   return (
     <>
       {/* MOBILE VIEW (Screen width < md) */}
-      <div className="md:hidden flex flex-col w-full px-6 py-12 bg-white overflow-hidden">
+      <div className="md:hidden flex flex-col w-full px-6 py-7 bg-white overflow-hidden">
         <h2 className="text-center font-cormorant text-[28px] font-semibold text-[#741717] uppercase tracking-wide mb-6">
           Choose Your Path
         </h2>
-        
+
         {/* Toggle Switcher */}
         <div className="flex bg-[#F9F5F2] rounded-xl p-1 mb-8 border border-stone-100 mx-auto w-full max-w-[320px] shadow-sm">
           <button
             onClick={() => setActiveMobileTab("creators")}
-            className={`flex-1 rounded-lg py-2.5 text-sm font-medium transition-all font-sans ${
-              activeMobileTab === "creators"
+            className={`flex-1 rounded-lg py-2.5 text-sm font-medium transition-all font-sans ${activeMobileTab === "creators"
                 ? "bg-[#541409] text-white shadow-sm"
                 : "text-stone-600 hover:text-[#541409]"
-            }`}
+              }`}
           >
             For Creators
           </button>
           <button
             onClick={() => setActiveMobileTab("brands")}
-            className={`flex-1 rounded-lg py-2.5 text-sm font-medium transition-all font-sans ${
-              activeMobileTab === "brands"
+            className={`flex-1 rounded-lg py-2.5 text-sm font-medium transition-all font-sans ${activeMobileTab === "brands"
                 ? "bg-[#541409] text-white shadow-sm"
                 : "text-stone-600 hover:text-[#541409]"
-            }`}
+              }`}
           >
             For Brands
           </button>
@@ -187,12 +184,12 @@ export const Opportunities = ({ onJoinCreator, onJoinBrand }) => {
             <h3 className="font-cormorant text-2xl font-semibold text-[#22000C] mb-5">
               {activeMobileTab === "creators" ? "For Creators" : "For Brands"}
             </h3>
-            
+
             <ul className="flex flex-col gap-y-4">
               {(activeMobileTab === "creators" ? creatorMobileFeatures : brandMobileFeatures).map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5">
+                <li key={index} className="flex items-center gap-2.5">
                   <BulletCheckIcon />
-                  <span className="font-sans text-[13px] min-[375px]:text-sm font-light text-[#22000C] leading-snug">
+                  <span className="font-sans text-[#22000C] text-base">
                     {item}
                   </span>
                 </li>

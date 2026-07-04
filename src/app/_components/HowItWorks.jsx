@@ -99,31 +99,23 @@ const mobileSteps = [
     title: "Discover Matches",
     desc: "Find relevant creators or brands that align with your goals.",
     bullets: ["Swipe-to-match", "Curated recommendations"],
-    icon: Icons.match,
+    icon: Icons.swipe,
   },
   {
     step: "STEP 3",
     title: "Connect & Collaborate",
     desc: "Chat, confirm, and manage collaborations all in one place.",
     bullets: ["In-app chat", "Campaign management"],
-    icon: Icons.featureChat,
+    icon: Icons.chat,
   },
   {
     step: "STEP 4",
     title: "Track & Grow",
     desc: "Track performance, earn rewards, and grow lasting partnerships.",
     bullets: ["Rewards & badges", "Expert guidance & strategy"],
-    icon: Icons.results,
+    icon: Icons.grow,
   },
 ];
-
-const BulletCheckIcon = () => (
-  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#741717]">
-    <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.5 4L4 6.5L8.5 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  </div>
-);
 
 export const HowItWorks = () => {
   const [activeTab, setActiveTab] = useState("creators");
@@ -205,7 +197,11 @@ export const HowItWorks = () => {
               <ul className="flex flex-col gap-1.5 w-full mt-auto pt-1 items-start px-1">
                 {item.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-center gap-1.5">
-                    <BulletCheckIcon />
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.3337 10.0001C18.3337 5.39771 14.6027 1.66675 10.0003 1.66675C5.39795 1.66675 1.66699 5.39771 1.66699 10.0001C1.66699 14.6024 5.39795 18.3334 10.0003 18.3334C14.6027 18.3334 18.3337 14.6024 18.3337 10.0001Z" fill="#741717" />
+                      <path d="M6.66699 10.6251C6.66699 10.6251 8.00033 11.3855 8.66699 12.5001C8.66699 12.5001 10.667 8.12508 13.3337 6.66675" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+
                     <span className="font-sans text-[10px] font-medium text-[#741717] leading-tight text-left">
                       {bullet}
                     </span>
