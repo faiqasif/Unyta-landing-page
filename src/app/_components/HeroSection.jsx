@@ -41,7 +41,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
                 transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
               },
             }}
-            className="mt-3 font-sans text-sm tracking-wider font-light leading-relaxed text-[#22000C]"
+            className="mt-3 font-sans text-sm font-medium leading-relaxed text-[#22000C]"
           >
             Swipe to match. Unlock exclusive collaborations, gifted products, and curated experiences.
           </motion.p>

@@ -67,7 +67,7 @@ export const CoreSectors = () => {
           ))}
         </motion.div>
 
-        <div className="w-full max-w-[900px] h-px bg-linear-to-r from-[#FFE2DD] via-[#54140980] to-[#FFE2DD]" />
+        <div className="w-full h-px bg-linear-to-r from-[#FFE2DD] via-[#54140980] to-[#FFE2DD]" />
 
         <motion.div
           initial={{ y: 20, opacity: 0 }}

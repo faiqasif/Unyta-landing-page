@@ -23,7 +23,7 @@ export default function TermsPage() {
       </section>
 
       {/* CONTENT REGION */}
-      <section className="mx-auto py-24 px-6 md:px-12 font-sans font-light text-[#22000C]/90 leading-relaxed text-[15px] md:text-lg">
+      <section className="mx-auto py-7 md:py-20 px-6 md:px-12 font-sans font-light text-[#22000C]/90 leading-relaxed text-[15px] md:text-lg">
         <div className="flex flex-col gap-y-6 max-w-[1200px] w-full">
 
           <div>
