@@ -70,7 +70,7 @@ export const BrandGuidance = ({ onDemoSubmitSuccess }) => {
                 <ChevronRight />
               </a>
             </div>
-            <p className="font-sans font-light text-sm text-[#EEE8E6] md:text-[#22000C]/60 max-w-[340px]">
+            <p className="font-sans text-sm text-[#EEE8E6] md:text-[#22000C]/60 max-w-[340px]">
               Have questions? Our Team is here to help.
             </p>
           </div>
@@ -89,7 +89,7 @@ export const BrandGuidance = ({ onDemoSubmitSuccess }) => {
                 <ChevronRight className="text-[#741717] md:text-white" />
               </button>
             </div>
-            <p className="font-sans font-light text-sm text-[#EEE8E6] md:text-[#22000C]/60 max-w-[340px] pl-6">
+            <p className="font-sans text-sm text-[#EEE8E6] md:text-[#22000C]/60 max-w-[340px] pl-6">
               For multi-locations businesses or larger brands.
             </p>
           </div>

@@ -43,7 +43,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
             }}
             className="mt-3 font-sans text-sm font-medium leading-relaxed text-[#22000C]"
           >
-            Swipe to match. Unlock exclusive collaborations, gifted products, and curated experiences.
+            Unlock exclusive collaborations, gifted products, and curated experiences.
           </motion.p>
 
           <motion.div
@@ -137,7 +137,7 @@ export function HeroSection({ onJoinCreator, onJoinBrand }) {
             }}
             className="mx-auto mt-2 max-w-lg font-light text-[#22000C] text-lg font-sans sm:text-xl"
           >
-            Swipe to match. Unlock exclusive collaborations, gifted products, and
+            Unlock exclusive collaborations, gifted products, and
             curated experiences.
           </motion.p>
 

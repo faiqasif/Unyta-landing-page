@@ -16,7 +16,7 @@ const sectors = [
 
 export const CoreSectors = () => {
   return (
-    <section className="w-full py-7 sm:py-16 md:py-24 bg-white flex flex-col items-center overflow-hidden">
+    <section className="w-full py-7 sm:py-16 md:pt-24 md:pb-10 bg-white flex flex-col items-center overflow-hidden">
       <div className="mx-auto px-6 md:px-12 w-full flex flex-col items-center">
         <motion.h2
           initial={{ y: 24, opacity: 0 }}
@@ -76,22 +76,20 @@ export const CoreSectors = () => {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
           className="flex items-center justify-center gap-4 sm:gap-0 w-full max-w-[700px] pt-5 md:pt-12"
         >
-          <div className="flex items-center gap-4 sm:gap-5 sm:flex-1 sm:justify-center">
-            <div className="size-12 rounded-full flex items-center justify-center bg-[#F1E8E8] min-w-12">
-              <Image
-                src="/core/globe.svg"
-                alt=""
-                width={32}
-                height={32}
-                aria-hidden
-                className="size-6 md:size-8"
-              />
-            </div>
+          <div className="flex items-center gap-3 sm:flex-1 sm:justify-center">
+            <Image
+              src="/core/globe.svg"
+              alt=""
+              width={32}
+              height={32}
+              aria-hidden
+              className="size-6 md:size-8"
+            />
             <div className="flex flex-col gap-0.5">
-              <span className="font-sans font-light text-sm text-[#22000C]/60">
+              <span className="font-sans font-medium text-sm text-[#22000C]/60">
                 Product Gifting
               </span>
-              <span className="font-cormorant text-nowrap md:text-2xl font-semibold text-[#741717]">
+              <span className="font-cormorant text-nowrap md:text-xl font-semibold text-[#741717]">
                 Available globally
               </span>
             </div>
@@ -99,8 +97,7 @@ export const CoreSectors = () => {
 
           <div className="block w-px h-14 bg-linear-to-b from-[#FFE2DD] via-[#54140966] to-[#FFE2DD] mx-0 md:mx-12 shrink-0" />
 
-          <div className="flex items-center gap-4 sm:gap-5 sm:flex-1 sm:justify-center">
-            <div className="size-12 rounded-full flex items-center justify-center bg-[#F1E8E8] min-w-12">
+          <div className="flex items-center gap-3 sm:flex-1 sm:justify-center">
               <Image
                 src="/core/location.svg"
                 alt=""
@@ -108,13 +105,12 @@ export const CoreSectors = () => {
                 height={32}
                 aria-hidden
                 className="size-6 md:size-8"
-              />
-            </div>
+            />
             <div className="flex flex-col gap-0.5">
-              <span className="font-sans font-light text-sm text-[#22000C]/60">
+              <span className="font-sans font-medium text-sm text-[#22000C]/60">
                 Experiences
               </span>
-              <span className="font-cormorant text-nowrap md:text-2xl font-semibold text-[#741717]">
+              <span className="font-cormorant text-nowrap md:text-xl font-semibold text-[#741717]">
                 Curated by city
               </span>
             </div>

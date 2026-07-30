@@ -30,11 +30,11 @@ export const WhereWeOperate = () => {
           </h2>
 
           <p className="font-sans text-[#22000C] text-[15px] md:text-lg max-w-[704px] leading-relaxed mb-4 sm:mb-8">
-            From global product gifting to curated city experiences,<br /> Unyta connects
-            creators with premium brand <br /> partnerships across four key cities.
+            From global product gifting to curated city experiences, Unyta connects
+            creators with premium brand partnerships across four key cities.
           </p>
 
-          <div className="font-cormorant text-lg sm:text-[28px] flex gap-x-2 sm:flex-col leading-tight">
+          <div className="font-cormorant text-lg sm:text-[28px] flex gap-x-2 leading-tight">
             <p className="font-semibold text-[#0D0D12]">High-impact cities.</p>
             <p className="font-semibold text-[#741717]">Premium sectors.</p>
           </div>

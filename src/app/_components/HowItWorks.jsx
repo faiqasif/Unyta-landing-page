@@ -12,7 +12,7 @@ const creatorContent = [
   },
   {
     title: <>Swipe to match with aligned brands & chat</>,
-    desc: "Discover brands seeking authentic partnerships tailored to your niche and content style.",
+    desc: "Discover brands seeking authentic partnerships, share ideas, and stay in sync.",
     icon: Icons.swipe,
   },
   {
