@@ -45,3 +45,38 @@ body {
 button {
   cursor: pointer;
 }
+
+/*
+  Admin data-viz tokens. Brand-derived instance of the categorical/ordinal palette.
+  Validated on the white chart surface with scripts/validate_palette.js:
+    categorical (3 slots, --pairs all): all six checks PASS
+    ordinal maroon ramp (--ordinal): monotone L, adjacent dL >= 0.06, light end 2.18:1
+  The admin surface is light-only, matching the marketing site's fixed palette.
+*/
+.viz-root {
+  color-scheme: light;
+  --viz-surface: #ffffff;
+  --viz-plane: #f5f2f1;
+  --viz-ink: #22000c;
+  --viz-ink-2: #52514e;
+  --viz-muted: #898781;
+  --viz-grid: #ebe4e3;
+  --viz-axis: #c7c7cb;
+  --viz-deemph: #a79b99;
+
+  /* categorical slots — assigned in fixed order, never cycled */
+  --series-1: #a2291d;
+  --series-2: #c08a1e;
+  --series-3: #00806b;
+
+  /* ordinal ramp — light to dark, for ordered buckets */
+  --ord-1: #e0a096;
+  --ord-2: #ce7062;
+  --ord-3: #b84b3c;
+  --ord-4: #a2291d;
+  --ord-5: #741717;
+
+  /* status — reserved meaning, always paired with icon + label */
+  --status-good: #006300;
+  --status-critical: #d03b3b;
+}

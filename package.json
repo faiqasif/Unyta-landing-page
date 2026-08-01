@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "seed:admin": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

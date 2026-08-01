@@ -4,6 +4,39 @@ service cloud.firestore {
     // Copy this entire file into Firebase Console → Firestore → Rules → Publish.
     // Or: firebase deploy --only firestore:rules (after firebase login & use project)
 
+    // A signed-in account is an admin only if it has a record in adminUsers.
+    // The admin panel (/admin) reads the form collections through this check.
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/adminUsers/$(request.auth.uid));
+    }
+
+    // Admin directory. Seeded by `npm run seed:admin`, which signs in as the seed
+    // address and writes its own record — hence the email pin on create: no other
+    // authenticated account can promote itself to admin.
+    match /adminUsers/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null
+        && request.auth.uid == uid
+        && request.auth.token.email == 'admin@unyta.com'
+        && request.resource.data.keys().hasOnly(['name', 'email', 'role', 'createdAt', 'updatedAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() < 200
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() < 320
+        && request.resource.data.role is string
+        && request.resource.data.role.size() < 50;
+      // An admin can edit its own name/email, but never its role.
+      allow update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'email', 'role', 'createdAt', 'updatedAt'])
+        && request.resource.data.role == resource.data.role
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if false;
+    }
+
     match /creators/{docId} {
       allow create: if request.resource.data.size() == 5
         && request.resource.data.keys().hasOnly([
@@ -25,7 +58,8 @@ service cloud.firestore {
         && request.resource.data.password is string
         && request.resource.data.password.size() >= 8
         && request.resource.data.password.size() < 500;
-      allow read, update, delete: if false;
+      allow read: if isAdmin();
+      allow update, delete: if false;
     }
 
     match /brands/{docId} {
@@ -53,7 +87,8 @@ service cloud.firestore {
         && request.resource.data.password is string
         && request.resource.data.password.size() >= 8
         && request.resource.data.password.size() < 500;
-      allow read, update, delete: if false;
+      allow read: if isAdmin();
+      allow update, delete: if false;
     }
 
     match /brandDemoRequests/{docId} {
@@ -88,7 +123,8 @@ service cloud.firestore {
         && (request.resource.data.notes == null
           || (request.resource.data.notes is string
             && request.resource.data.notes.size() < 2000));
-      allow read, update, delete: if false;
+      allow read: if isAdmin();
+      allow update, delete: if false;
     }
   }
 }

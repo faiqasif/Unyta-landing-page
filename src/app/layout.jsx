@@ -1,11 +1,8 @@
 import { Cormorant_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 import "@/app/globals.css";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { Navbar } from "@/components/layout/Navbar";
 import { FirebaseInit } from "@/components/FirebaseInit";
 import { AppToaster } from "@/components/AppToaster";
-import { Footer } from "./_components/Footer";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -55,11 +52,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <FirebaseInit />
         <AppToaster />
-        <SmoothScroll>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   );

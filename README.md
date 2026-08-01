@@ -20,6 +20,44 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Admin panel
+
+The internal dashboard lives at [`/admin`](http://localhost:3000/admin): a submissions
+dashboard, tables for creator applications, brand applications and demo requests, and
+account settings. It authenticates with Firebase Auth and authorises against the
+`adminUsers` Firestore collection — an account can only reach `/admin` if it has a
+record there.
+
+### One-time Firebase setup
+
+1. **Firebase Console → Authentication → Sign-in method** — enable **Email/Password**.
+2. **Firebase Console → Firestore → Rules** — publish the contents of `firestore.rules`.
+   The rules add an `isAdmin()` check that lets admins read the three form collections,
+   and pin `adminUsers` creation to the seed address so no other account can promote
+   itself.
+
+### Seed the admin user
+
+```bash
+npm run seed:admin
+```
+
+Creates the Firebase Auth account `admin@unyta.com` / `password` (or reuses it if it
+already exists) and writes the matching `adminUsers/{uid}` record. Override with
+`SEED_ADMIN_EMAIL`, `SEED_ADMIN_PASSWORD` and `SEED_ADMIN_NAME`; a different email also
+needs the pinned address in `firestore.rules` updated.
+
+Sign in at `/admin/login`, then change the password from `/admin/settings`. Name, email
+and password are all editable there (email and password changes ask for the current
+password).
+
+### Notes
+
+- The admin panel never reads or renders the `password` field that the public application
+  forms write — it is stripped as the documents are loaded.
+- Routing: marketing pages live in `src/app/(site)/` (navbar + footer + smooth scroll);
+  `src/app/admin/` has its own chrome.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
